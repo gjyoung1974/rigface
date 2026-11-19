@@ -1,0 +1,6 @@
+// Generated from style.css by CMake; edit that file instead.
+#pragma once
+
+namespace rigface {
+inline constexpr char STYLE_CSS[] = R"rigfacecss(@RIGFACE_STYLE_CSS@)rigfacecss";
+}
