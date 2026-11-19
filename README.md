@@ -1,17 +1,18 @@
 # Rigface
 
-A GTK4 transceiver-style front panel for SDR transceivers: big frequency
+A GTK4 transceiver-style Linux Desktop GUI for SDR transceivers: big frequency
 readout, S-meter, spectrum scope with waterfall, band/mode/filter keys.
 
 ![Rigface receiving an SSB signal on 40 m](docs/screenshot.png)
 
 *`rigface --demo`: the simulated HF band, tuned to an SSB station on 40 m.*
 
-Two kinds of radio are supported:
+Thus far two radios are supported:
 
 - **Radioberry, Hermes-Lite and other HPSDR Protocol 1 radios**, over UDP
   (port 1024). For a Radioberry that is the standard `radioberry` daemon, so
   this runs either on the Pi itself or on another machine on the same network.
+  
 - **QRP Labs QMX / QMX+**, over its USB cable (CAT serial port plus its sound
   card in IQ mode). See [QMX](#qrp-labs-qmx) below.
 
