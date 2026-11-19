@@ -123,6 +123,8 @@ to it. A third radio is another such class plus a line in `Panel.connect`.
 
 ## Not there yet
 
+This is beta software, expect things to be broken!
+
 CW keying (paddle/straight key), split, noise reduction/blanker, and a real
 power/SWR readout on HPSDR radios — there the meter shows the drive setting
 while transmitting. The S-meter calibration is a nominal constant per radio
