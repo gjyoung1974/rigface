@@ -16,22 +16,6 @@ Thus far two radios are supported:
 - **QRP Labs QMX / QMX+**, over its USB cable (CAT serial port plus its sound
   card in IQ mode). See [QMX](#qrp-labs-qmx) below.
 
-Demodulation and audio are done here, in Python with numpy.
-
-## Run
-
-    ./bin/rigface                    # discover a radio on the network or USB
-    ./bin/rigface --radio 192.168.1.50
-    ./bin/rigface --radio qmx        # QMX on USB (or qmx:/dev/ttyACM0)
-    ./bin/rigface --demo             # no hardware: simulated HF band
-    ./bin/rigface --demo qmx         # the same band through a simulated QMX
-
-Needs Python 3, PyGObject with GTK 4 and GStreamer, numpy and scipy. On
-Raspberry Pi OS / Debian / Ubuntu:
-
-    sudo apt install python3-gi gir1.2-gtk-4.0 gir1.2-gstreamer-1.0 \
-        gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
-        gstreamer1.0-pulseaudio python3-numpy python3-scipy
 
 ## Operating
 
@@ -93,28 +77,12 @@ sound settings, or set `audio_sink` / `audio_source`.
 This backend has only been run against the simulator in `rigface/sim.py`, which
 was written from the QMX manuals — not yet against a real QMX.
 
-## C++ version
-
-The same panel also exists in C++ (`src/`), with no Python needed at run time:
+# Requirements
 
     sudo apt install g++ make pkg-config libgtk-4-dev libgstreamer1.0-dev
     make                 # build/rigface and build/rigface-sim
     ./build/rigface --demo
     make check           # smoke test against the simulator (needs a display)
-
-It takes the same options and reads the same settings file as the Python one.
-
-## Layout
-
-    bin/rigface           launcher for a source checkout (or `python3 -m rigface`)
-    rigface/protocol.py   HPSDR Protocol 1 client (discovery, streaming, control)
-    rigface/qmx.py        QRP Labs QMX client (CAT over serial, I/Q over USB audio)
-    rigface/dsp.py        receiver (decimate, filter, demod, AGC) and transmitter
-    rigface/audio.py      speaker and microphone via GStreamer
-    rigface/widgets.py    frequency readout, meter, scope (Cairo)
-    rigface/app.py        the window and operating logic
-    rigface/sim.py        simulated radios; also `python3 -m rigface.sim [--qmx]` standalone
-    tests/                `test_headless.py` (DSP + both radios), `smoke_gui.py [qmx]`
 
 `protocol.Radio` and `qmx.Radio` share one interface (described at the top of
 `protocol.Radio`), including what the radio can do — sample rates, modes,
