@@ -1,7 +1,7 @@
 # Rigface
 
-A GTK4 transceiver-style Linux Desktop GUI for SDR transceivers: big frequency
-readout, S-meter, spectrum scope with waterfall, band/mode/filter keys.
+A GTK4 Linux Desktop GUI for SDR transceivers: big frequency readout,  
+S-meter, spectrum scope with waterfall, band/mode/filter keys.
 
 ![Rigface receiving an SSB signal on 40 m](docs/screenshot.png)
 
